@@ -13,14 +13,8 @@ public class MultiplesDeleter {
      */
     public Integer[] deleteEvens(Integer[] ints) {
 
-        ArrayList<Integer>noEvens = new ArrayList<>();
-        for(int i = 0; i <= ints.length; i++) {
-            if(i % 2 != 0) {
-                noEvens.add(i);
-            }
-            returnArray[i] = noEvens.add(i);
-        }
-        return returnArray;
+
+        return null;
 
     }
 

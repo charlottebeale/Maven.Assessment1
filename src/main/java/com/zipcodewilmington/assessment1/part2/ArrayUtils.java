@@ -17,7 +17,7 @@ public class ArrayUtils {
      */
     public static Integer getNumberOfOccurrences(Object[] objectArray, Object objectToCount) {
         Integer count = 0;
-        for (Object o: objectArray)
+        for (Object o : objectArray)
             if (o.equals(objectToCount)) {
                 count++;
 
@@ -33,8 +33,7 @@ public class ArrayUtils {
      * Given an array of objects, name `objectArray`, and an object `objectToRemove`, return an array of objects with identical contents excluding `objectToRemove`
      */
     public static Object[] removeValue(Object[] objectArray, Object objectToRemove) {
-        String newString = objectArray.replace(objectToRemove, " ");
-        return newString;
+        return null;
 
     }
 
@@ -44,18 +43,7 @@ public class ArrayUtils {
      * given an array of objects, named `objectArray` return the most frequently occuring object in the array
      */
     public static Object getMostCommon(Object[] objectArray) {
-        TreeMap<Object, Integer>tracker = createCountTracker(objectArray);
-        Object mostCommon = tracker.firstKey();
-        Integer howCommon = tracker.get(tracker.firstKey());
-        Set<Object>keys = tracker.keySet();
-        for(Object key : keys) {
-            if(tracker.get(key) == howCommon) {
-                mostCommon = key;
-                howCommon = tracker.get(key);
-            }
-        }
-
-        return mostCommon;
+        return null;
     }
 
 
@@ -65,17 +53,8 @@ public class ArrayUtils {
      * given an array of objects, named `objectArray` return the least frequently occuring object in the array
      */
     public static Object getLeastCommon(Object[] objectArray) {
-        TreeMap<Object, Integer> tracker = createCountTracker(objectArray);
-        Object leastCommon = tracker.firstKey();
-        Integer howCommon = tracker.get(tracker.firstKey());
-        Set<Object> keys = tracker.keySet();
-        for(Object key : keys) {
-            if(tracker.get(key) < howCommon) {
-                leastCommon = key;
-                howCommon = tracker.get(key);
-            }
-        }
-    return leastCommon;
+
+        return null;
     }
 
     /**
@@ -85,13 +64,6 @@ public class ArrayUtils {
      * given two arrays `objectArray` and `objectArrayToAdd`, return an array containing all elements in `objectArray` and `objectArrayToAdd`
      */
     public static Object[] mergeArrays(Object[] objectArray, Object[] objectArrayToAdd) {
-        Integer[] newArray = new Integer[objectArray.length + objectArrayToAdd.length];
-        for(int i = 0; i < objectArray.length; i++) {
-            newArray[i] = objectArray[i];
-        }
-        for(int i = objectArray.length; i < objectArray.length + objectArrayToAdd.length; i++){
-            newArray[i] = objectArrayToAdd[i - objectArray.length];
-        }
-        return newArray;
+        return null;
     }
 }
