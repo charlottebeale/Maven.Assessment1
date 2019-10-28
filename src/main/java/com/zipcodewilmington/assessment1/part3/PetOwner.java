@@ -4,8 +4,10 @@ package com.zipcodewilmington.assessment1.part3;
  * Created by leon on 2/16/18.
  */
 public class PetOwner {
-    private String name;
-    private Pet[]pets;
+    public String name;
+    public Pet[]pets;
+
+
     /**
      * @param name name of the owner of the Pet
      * @param pets array of Pet object
@@ -71,7 +73,7 @@ public class PetOwner {
     public Integer getYoungetPetAge() {
         Integer youngestAge = pets[0].getAge();
         for(Pet p : pets) {
-            if(p.getAge() < youngestAge) {
+            if(p.getAge() <= youngestAge) {
                 youngestAge = p.getAge();
             }
         }

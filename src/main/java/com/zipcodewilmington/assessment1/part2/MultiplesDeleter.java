@@ -12,10 +12,17 @@ public class MultiplesDeleter {
      * given an array of integers, named `ints` return an identical array with evens removed
      */
     public Integer[] deleteEvens(Integer[] ints) {
-
-
-        return null;
-
+        ArrayList<Integer>noEvens = new ArrayList<>();
+        for(Integer i : ints) {
+            if(i % 2 != 0) {
+                noEvens.add(i);
+            }
+        }
+        Integer[]returnArray = new Integer[noEvens.size()];
+        for(int i = 0; i < returnArray.length; i++) {
+            returnArray[i] = noEvens.get(i);
+        }
+        return returnArray;
     }
 
     /**
@@ -43,8 +50,19 @@ public class MultiplesDeleter {
      * given an array of integers, named `ints` return an identical array with numbers indivisible by 3 removed
      */
     public Integer[] deleteMultiplesOf3(Integer[] ints) {
-        return deleteMultiplesOfN(ints, 3);
+        ArrayList<Integer>noOdds = new ArrayList<>();
+        for(Integer i : ints) {
+            if(i % 3 != 0) {
+                noOdds.add(i);
+            }
+        }
+        Integer[]returnArray = new Integer[noOdds.size()];
+        for(int i = 0; i < returnArray.length; i++) {
+            returnArray[i] = noOdds.get(i);
+        }
+        return returnArray;
     }
+
 
     /**
      * @param ints array of Integer objects
@@ -53,6 +71,17 @@ public class MultiplesDeleter {
      * given an array of integers, named `ints` return an identical array with numbers indivisible by `multiple` removed
      */
     public Integer[] deleteMultiplesOfN(Integer[] ints, int multiple) {
-        return deleteMultiplesOfN(ints, multiple);
+        ArrayList<Integer>noOdds = new ArrayList<>();
+        for(Integer i : ints) {
+            if(i % multiple != 0) {
+                noOdds.add(i);
+            }
+        }
+        Integer[]returnArray = new Integer[noOdds.size()];
+        for(int i = 0; i < returnArray.length; i++) {
+            returnArray[i] = noOdds.get(i);
+        }
+        return returnArray;
+
     }
 }
