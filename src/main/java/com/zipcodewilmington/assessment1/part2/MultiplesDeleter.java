@@ -1,5 +1,7 @@
 package com.zipcodewilmington.assessment1.part2;
 
+import java.util.ArrayList;
+
 /**
  * Created by leon on 2/16/18.
  */
@@ -10,7 +12,16 @@ public class MultiplesDeleter {
      * given an array of integers, named `ints` return an identical array with evens removed
      */
     public Integer[] deleteEvens(Integer[] ints) {
-        return null;
+
+        ArrayList<Integer>noEvens = new ArrayList<>();
+        for(int i = 0; i <= ints.length; i++) {
+            if(i % 2 != 0) {
+                noEvens.add(i);
+            }
+            returnArray[i] = noEvens.add(i);
+        }
+        return returnArray;
+
     }
 
     /**
@@ -19,7 +30,17 @@ public class MultiplesDeleter {
      * given an array of integers, named `ints` return an identical array with odds removed
      */
     public Integer[] deleteOdds(Integer[] ints) {
-        return null;
+        ArrayList<Integer>noOdds = new ArrayList<>();
+        for(Integer i : ints) {
+            if(i % 2 == 0) {
+                noOdds.add(i);
+            }
+        }
+        Integer[]returnArray = new Integer[noOdds.size()];
+        for(int i = 0; i < returnArray.length; i++) {
+            returnArray[i] = noOdds.get(i);
+        }
+        return returnArray;
     }
 
     /**
@@ -28,7 +49,7 @@ public class MultiplesDeleter {
      * given an array of integers, named `ints` return an identical array with numbers indivisible by 3 removed
      */
     public Integer[] deleteMultiplesOf3(Integer[] ints) {
-        return null;
+        return deleteMultiplesOfN(ints, 3);
     }
 
     /**
@@ -38,6 +59,6 @@ public class MultiplesDeleter {
      * given an array of integers, named `ints` return an identical array with numbers indivisible by `multiple` removed
      */
     public Integer[] deleteMultiplesOfN(Integer[] ints, int multiple) {
-        return null;
+        return deleteMultiplesOfN(ints, multiple);
     }
 }
