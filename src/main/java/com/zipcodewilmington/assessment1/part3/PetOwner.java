@@ -1,11 +1,13 @@
 package com.zipcodewilmington.assessment1.part3;
+import com.zipcodewilmington.assessment1.part1.IntegerArrayUtils;
+import com.zipcodewilmington.assessment1.part2.ArrayUtils;
 
 /**
  * Created by leon on 2/16/18.
  */
 public class PetOwner {
-    public String name;
-    public Pet[]pets;
+        String name = "";
+        Pet[] pets = null;
 
 
     /**
@@ -16,22 +18,27 @@ public class PetOwner {
         this.name = name;
         this.pets = pets;
         if(pets != null) {
-            for(Pet pet: pets);
+            for(Pet p: pets) {
+                p.setOwner(this);
+            }
         }
+
     }
 
     /**
      * @param pet pet to be added to the composite collection of Pets
      */
     public void addPet(Pet pet) {
-        if(pets == null) {
-            this.pets = new Pet[0];
-            Pet[]newPetArray = new Pet[pets.length + 1];
-            for(int i = 0; i < pets.length; i++) {
-                newPetArray[i] = pets[i];
+        if(pets != null) {
+            Pet[] resized = new Pet[pets.length + 1];
+            for (int i = 0; i < pets.length; i++) {
+                resized[i] = pets[i];
             }
-            newPetArray[newPetArray.length - 1] = pet;
-            this.pets = newPetArray;
+            resized[pets.length] = pet;
+            pets = resized;
+        } else {
+            pets = new Pet[1];
+            pets[0] = pet;
         }
     }
 
@@ -39,18 +46,11 @@ public class PetOwner {
      * @param pet pet to be removed from the composite collection Pets
      */
     public void removePet(Pet pet) {
-        Pet[]newPetArray = new Pet[pets.length -1];
-        if(newPetArray.length == 0){
-            this.pets = null; }
-        else {
-            for(int i = 0; i < pets.length; i++) {
-                if(!pets[i].equals(pet)) {
-                    newPetArray[i++] = pets[i];
-                }
+        for (int i = 0; i < pets.length; i++) {
+            if (pets[i].equals(pet)) {
+                pets[i] = null;
             }
-            this.pets = newPetArray;
         }
-
     }
 
     /**
@@ -58,13 +58,12 @@ public class PetOwner {
      * @return true if I own this pet
      */
     public Boolean isOwnerOf(Pet pet) {
-        Boolean owner = false;
         for(Pet p : pets) {
             if(p.equals(pet)) {
-                owner = true;
+                return true;
             }
         }
-        return owner;
+        return false;
     }
 
     /**
@@ -73,7 +72,7 @@ public class PetOwner {
     public Integer getYoungetPetAge() {
         Integer youngestAge = pets[0].getAge();
         for(Pet p : pets) {
-            if(p.getAge() <= youngestAge) {
+            if(p.getAge() < youngestAge) {
                 youngestAge = p.getAge();
             }
         }
